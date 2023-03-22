@@ -1,35 +1,33 @@
-## Add/Replace Cloudflare Subdomain Using Listed IPs
+## با استفاده از IP های لیست شده، زیر دامنه Cloudflare را اضافه یا جایگزین کنید
 
-This script is a Bash script designed to modify Cloudflare DNS records for a particular subdomain. It reads Cloudflare credentials and A record modification details from the user, and then it deletes existing A records for the specified subdomain and adds new A records based on a list of IP addresses provided in a CSV file.
+این اسکریپت یک اسکریپت Bash است که برای تغییر رکوردهای DNS درCloudflare  برای یک زیر دامنه خاص طراحی شده است. اطلاعات کاربری Cloudflare و جزئیات اصلاح رکورد A را از کاربر می پرسد و سپس رکوردهای A  موجود را برای زیردامنه مشخص شده حذف کرده و رکوردهای A جدید را بر اساس آی‌پی‌های لیست شده در فایل CSV به همان زیردامنه در کلادفلر شما اضافه می‌کند.
 
-The script sets default values for the Cloudflare credentials and A record modification details, which can be overridden by user input. It also looks for a configuration file in the current directory, and loads any values from it if it exists.
+این اسکریپت پس از دریافت اطلاعات مورد نیاز برای دسترسی به کلادفلر، زیردامنه و همینطور مسیر فایل CSV، این اطلاعات را برای استفاده های بعدی در یه فایل کانفیگ در مسیر اجرای اسکریپت ذخیره می‌کند.
 
-The script uses the Cloudflare API to retrieve existing A records for the subdomain, delete them, and add new A records for each IP address listed in the CSV file.
+این اسکریپت از Cloudflare API برای بازیابی رکوردهای A موجود برای زیر دامنه، حذف آنها و اضافه کردن رکوردهای A جدید برای هر آدرس IP فهرست شده در فایل CSV استفاده می کند.
 
-Finally, the script saves the user input as default values in the configuration file.
+برای اجرای اسکریپت باید موارد زیر را داشته باشید:
 
-To run the script, you need to have the following:
+- یک حساب Cloudflare با کلید  API، شناسه Zone و آدرس ایمیل مرتبط با آن.
+- یک فایل CSV حاوی لیست آدرس های IP جدید برای زیر دامنه که هر آی‌پی در یک سطر آورده شده است.
+- اسکریپت ذخیره شده در یک فایل با پسوند ".sh".
+- فایل اسکریپت باید با استفاده از دستور "chmod +x cf-replace-ips.sh" قابل اجرا باشد.
 
-- A Cloudflare account with the API key, zone ID, and email address associated with it.
-- A CSV file containing the list of new IP addresses for the subdomain.
-- The script saved in a file with the ".sh" extension.
-- The script file needs to be executable using the command "chmod +x scriptname.sh".
-
-### MacOSX/Linux
-To run the script in MacOSX/Linux terminal, download and unzip the script folder to your home directory, then go to the related folder, then do the following:
+###MacOSX/Linux
+برای اجرای اسکریپت در ترمینال MacOSX/Linux، پوشه اسکریپت را دانلود کرده و در پوشه اصلی خود از حالت فشرده خارج کنید، سپس به پوشه مربوطه بروید، سپس مراحل زیر را انجام دهید:
 ```
 cd ~/cf-replace-ips
-bash ./cf-replace-ips-bash.sh
+bash ./cf-replace-ips.sh
 ```
 
-### Windows
-For Windows, you need to install some package to run bash scripts, I recommend to install proper [Cygwin](https://www.cygwin.com/) based on your windows version.
-To run the script in Cygwin, download the script and copy the script folder to your home directory in Cygwin (Usually placed in `C:\Cygwin\home\yourname`), then execute Cygwin and do following steps:
+### ویندوز
+برای ویندوز، برای اجرای اسکریپت های bash باید بسته ای را نصب کنید، توصیه می کنم [Cygwin] (https://www.cygwin.com/) مناسب را بر اساس نسخه ویندوز خود نصب کنید.
+برای اجرای اسکریپت در Cygwin، اسکریپت را دانلود کنید و پوشه اسکریپت را در پوشه اصلی خود در Cygwin کپی کنید (معمولاً در 'C:\Cygwin\home\yourname' قرار می گیرد)، سپس Cygwin را اجرا کنید و مراحل زیر را انجام دهید:
 ```
 cd ~/cf-replace-ips
-bash ./cf-replace-ips-bash.sh
+bash ./cf-replace-ips.sh
 ```
 
-When executed, the script will prompt the user for the Cloudflare credentials and A record modification details. If any default values are set, they will be displayed as prompts for the user.
+هنگامی که اسکریپت اجرا شد، از کاربر می‌خواهد اعتبارنامه Cloudflare و جزئیات اصلاح رکورد A را دریافت کند. اگر قبلا این مقادیر داده باشید، به‌عنوان پیش فرض برای کاربر نمایش داده می‌شود.
 
-The script should be used with caution, as it can modify DNS records for a subdomain, potentially affecting website availability. It's recommended to test it in a non-production environment first.
+این اسکریپت باید با احتیاط استفاده شود، زیرا می تواند رکوردهای DNS را برای یک زیر دامنه تغییر دهد، که به طور بالقوه بر در دسترس بودن وب سایت تأثیر می گذارد. توصیه می شود ابتدا آن را در یک محیط غیر تولیدی تست کنید.
