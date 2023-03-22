@@ -1,4 +1,4 @@
-# Add/Replace Cloudflare Subdomain Using Listed IPs
+## Add/Replace Cloudflare Subdomain Using Listed IPs
 
 This script is a Bash script designed to modify Cloudflare DNS records for a particular subdomain. It reads Cloudflare credentials and A record modification details from the user, and then it deletes existing A records for the specified subdomain and adds new A records based on a list of IP addresses provided in a CSV file.
 
@@ -15,14 +15,19 @@ To run the script, you need to have the following:
 - The script saved in a file with the ".sh" extension.
 - The script file needs to be executable using the command "chmod +x scriptname.sh".
 
-To run the script in MacOSX/Linux terminal:
+### MacOSX/Linux
+To run the script in MacOSX/Linux terminal, download and unzip the script folder to your home directory, then go to the related folder, then do the following:
 ```
+cd ~/cf-replace-ips
 bash ./cf-replace-ips-bash.sh
 ```
 
-For Windows, you may run the script in PowerShell as bellow:
+### Windows
+For Windows, you need to install some package to run bash scripts, I recommend to install proper [Cygwin](https://www.cygwin.com/) based on your windows version.
+To run the script in Cygwin, download the script and copy the script folder to your home directory in Cygwin (Usually placed in `C:\Cygwin\home\yourname`), then execute Cygwin and do following steps:
 ```
-sh ./cf-replace-ips-sh.sh
+cd ~/cf-replace-ips
+bash ./cf-replace-ips-bash.sh
 ```
 
 When executed, the script will prompt the user for the Cloudflare credentials and A record modification details. If any default values are set, they will be displayed as prompts for the user.
