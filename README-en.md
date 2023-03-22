@@ -23,7 +23,7 @@ bash ./cf-replace-ips.sh
 ```
 
 ### Windows
-For Windows, you need to install some package to run bash scripts, I recommend to install proper [Cygwin](https://www.cygwin.com/) based on your windows version.
+For Windows, you need to install some package to run bash scripts, I recommend to install proper [Cygwin](https://www.cygwin.com) based on your windows version.
 To run the script in Cygwin, download the script and copy the script folder to your home directory in Cygwin (Usually placed in `C:\Cygwin\home\yourname`), then execute Cygwin and do following steps:
 ```
 cd ~/cf-replace-ips
